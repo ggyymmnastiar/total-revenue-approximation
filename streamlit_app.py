@@ -81,10 +81,10 @@ with st.expander('Data Visualization'):
 # Input Features (Sidebar)
 with st.sidebar:
     st.header('Input Features')
-    
-    quantity_total = st.number_input('Total Kuantitas Produk (liter/kg)', min_value=0.0, value=500.0, step=10.0)
-    quantity_sold = st.number_input('Kuantitas Terjual (liter/kg)', min_value=0.0, value=450.0, step=10.0)
-    price_per_unit = st.number_input('Harga Jual per Unit (IDR)', min_value=0.0, value=25000.0, step=500.0)
+
+    quantity_total = st.number_input('Total Kuantitas Produk (liter/kg)', min_value=0.0, value=500.0)
+    quantity_sold = st.number_input('Kuantitas Terjual (liter/kg)', min_value=0.0, value=450.0)
+    price_per_unit = st.number_input('Harga Jual per Unit (IDR)', min_value=0.0, value=25000.0)
 
 
 
