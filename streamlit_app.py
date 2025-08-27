@@ -112,11 +112,29 @@ with st.sidebar:
         format="%d"
     )
 
+    # Our Input
+    data = {
+        'Number of Cows': number_of_cows,
+        'Farm Size': farm_size,
+        'Product Name': product_name,
+        'Quantity (liters/kg)': quantity_total,
+        'Shelf Life (days)': shelf_life,
+        'Storage Condition': storage_condition,
+        'Quantity Sold (liters/kg)': quantity_sold,
+        'Price per Unit (sold) (IDR)': price_per_unit,
+        'Sales Channel': sales_channel 
+    }
 
+    input_df = pd.DataFrame(data)
+    combine_input_with_df = pd.concat([input_df, X], axis=0)
 
 # Input Features
 with st.expander('Input Features'):
-    st.write('**SOON**')
+    st.write("**Our Input**")
+    input_df
+
+    st.write("**Combined Input With Dataframe**")
+    combine_input_with_df
 
 with st.expander('Data Preprocessing'):
     tab1, tab2, tab3 = st.tabs(["Pipeline Setup", "Train | Test", "Hyperparameter Tuning"])
