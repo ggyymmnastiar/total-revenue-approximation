@@ -74,9 +74,21 @@ with st.expander('Data Preparation & EDA'):
     categorical_cols = ['Farm Size', 'Product Name', 'Storage Condition', 'Sales Channel']
     """, language='python')
 
+# Data Visualization
 with st.expander('Data Visualization'):
     st.write('**SOON**')
 
+# Input Features (Sidebar)
+with st.sidebar:
+    st.header('Input Features')
+    
+    quantity_total = st.number_input('Total Kuantitas Produk (liter/kg)', min_value=0.0, value=500.0, step=10.0)
+    quantity_sold = st.number_input('Kuantitas Terjual (liter/kg)', min_value=0.0, value=450.0, step=10.0)
+    price_per_unit = st.number_input('Harga Jual per Unit (IDR)', min_value=0.0, value=25000.0, step=500.0)
+
+
+
+# Input Features
 with st.expander('Input Features'):
     st.write('**SOON**')
 
