@@ -85,10 +85,10 @@ with st.sidebar:
     number_of_cows = st.slider('Number of Cows', min_value=1, max_value=150, value=50)
     shelf_life = st.slider('Shelf Life (days)', min_value=1, max_value=60, value=15)
 
-    farm_size = st.selectbox('Farm Size', option=['Large', 'Medium', 'Small'])
-    product_name = st.selectbox('Product Name', option=['Milk', 'Cheese', 'Yoghurt'])
-    storage_condition = st.selectbox('Storage Condition', option=['Refrigerated', 'Frozen', 'Ambient', 'Polythene Packet', 'Tetra Pack'])
-    sales_channel = st.selectbox('Sales Channel', option=['Retail', 'Wholesale', 'Online'])
+    farm_size = st.selectbox('Farm Size', options=['Large', 'Medium', 'Small'])
+    product_name = st.selectbox('Product Name', options=['Milk', 'Cheese', 'Yoghurt'])
+    storage_condition = st.selectbox('Storage Condition', options=['Refrigerated', 'Frozen', 'Ambient', 'Polythene Packet', 'Tetra Pack'])
+    sales_channel = st.selectbox('Sales Channel', options=['Retail', 'Wholesale', 'Online'])
 
     quantity_total = st.number_input(
         'Quantity in Stock (liters/kg)', 
