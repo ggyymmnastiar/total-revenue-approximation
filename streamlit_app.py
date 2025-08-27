@@ -152,15 +152,27 @@ with st.expander('Data Preprocessing'):
             mape = mean_absolute_percentage_error(y_test, y_pred) * 100
 
             # 2. Tampilkan Metrik menggunakan st.metric dalam kolom
-            col1, col2, col3, col4 = st.columns(4)
+            # --- Baris Pertama ---
+            col1, col2 = st.columns(2)
             with col1:
-                st.metric(label="R-squared (R²)", value=f"{r2:.2f}")
+                st.metric(label="R-squared (R²)", 
+                        value=f"{r2:.3f}", 
+                        help="Semakin mendekati 1, semakin baik modelnya.")
             with col2:
-                st.metric(label="Mean Absolute Error (MAE)", value=f"Rp {mae:,.0f}")
+                st.metric(label="Mean Absolute Percentage Error (MAPE)", 
+                        value=f"{mape:.2f} %",
+                        help="Rata-rata persentase kesalahan. Semakin kecil, semakin baik.")
+
+            # --- Baris Kedua ---
+            col3, col4 = st.columns(2)
             with col3:
-                st.metric(label="Root Mean Squared Error (RMSE)", value=f"Rp {rmse:,.0f}")
+                st.metric(label="Mean Absolute Error (MAE)", 
+                        value=f"Rp {mae:,.0f}",
+                        help="Rata-rata selisih absolut antara prediksi dan nilai asli dalam Rupiah.")
             with col4:
-                st.metric(label="Mean Absolute Percentage Error (MAPE)", value=f"Rp {mape}")
+                st.metric(label="Root Mean Squared Error (RMSE)", 
+                        value=f"Rp {rmse:,.0f}",
+                        help="Akar kuadrat dari rata-rata kesalahan kuadrat. Memberi bobot lebih pada kesalahan besar.")
             
             # --- Tampilkan Visualisasi ---
             st.subheader("Result Visualizations")
