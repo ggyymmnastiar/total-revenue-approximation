@@ -17,6 +17,8 @@ st.info('This is app builds a machine learning model to predict approximation to
 with st.expander('Data Overview'):
     df = pd.read_csv('https://raw.githubusercontent.com/ggyymmnastiar/g-revenue/refs/heads/master/dairy_dataset.csv')
     
+    st.write(f"**● Total Samples:** {len(df)}")
+    
     st.write('**● Raw Data:**')
     df
 
