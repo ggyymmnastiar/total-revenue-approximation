@@ -40,7 +40,7 @@ with st.expander('Data Preparation & EDA'):
 
     # Check missing value
     missing_counts = df.isnull().sum()
-    st.write("**● Missing Values per Column:**")
+    st.write("**● Missing Values per Column**")
     st.write(missing_counts)
 
     # Define X and y
@@ -57,3 +57,14 @@ with st.expander('Data Preparation & EDA'):
     y = df['Approx. Total Revenue (IDR)']
     """, language='python')
 
+    # Define numerical & categorical column
+    st.write('Define Numerical & Categorical Column')
+    numerical_cols = ['Number of Cows', 'Quantity (liters/kg)', 'Shelf Life (days)',
+                  'Quantity Sold (liters/kg)', 'Price per Unit (sold) (IDR)']
+    categorical_cols = ['Farm Size', 'Product Name', 'Storage Condition', 'Sales Channel']
+
+    st.code("""
+    numerical_cols = ['Number of Cows', 'Quantity (liters/kg)', 'Shelf Life (days)',
+                  'Quantity Sold (liters/kg)', 'Price per Unit (sold) (IDR)']
+    categorical_cols = ['Farm Size', 'Product Name', 'Storage Condition', 'Sales Channel']
+    """, language='python')
