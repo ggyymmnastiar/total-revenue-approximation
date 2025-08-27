@@ -26,4 +26,15 @@ with st.expander('Data Overview'):
     x_raw = df.drop('Approx. Total Revenue(INR)', axis=1)
     x_raw
 
+# Convert INR to IDR
+df['Price per Unit (sold) (IDR)'] = df['Price per Unit (sold)'] * 185
+df['Approx. Total Revenue (IDR)'] = df['Approx. Total Revenue(INR)'] * 185
+
+with st.expander('Data Preparation & EDA'):
+    st.write('Convert column from Rupee (INR) to Rupiah (IDR) assuming an exchange rate of 1 INR = 185 IDR')
+    st.code(""" 
+    df['Price per Unit (sold) (IDR)'] = df['Price per Unit (sold)'] * 185
+    df['Approx. Total Revenue (IDR)'] = df['Approx. Total Revenue(INR)'] * 185
+    """, language='python')
+
 
