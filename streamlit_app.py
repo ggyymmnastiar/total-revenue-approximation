@@ -82,9 +82,32 @@ with st.expander('Data Visualization'):
 with st.sidebar:
     st.header('Input Features')
 
-    quantity_total = st.number_input('Total Kuantitas Produk (liter/kg)', min_value=0.0, value=500.0)
-    quantity_sold = st.number_input('Kuantitas Terjual (liter/kg)', min_value=0.0, value=450.0)
-    price_per_unit = st.number_input('Harga Jual per Unit (IDR)', min_value=0.0, value=25000.0)
+    # --- Input Numerik ---
+    number_of_cows = st.slider('Jumlah Sapi (ekor)', min_value=1, max_value=150, value=50)
+    shelf_life = st.slider('Masa Simpan Produk (hari)', min_value=1, max_value=60, value=15)
+    
+    # PERBAIKAN: Menggunakan bilangan bulat dan format="%d"
+    quantity_total = st.number_input(
+        'Total Kuantitas Produk (liter/kg)', 
+        min_value=0, 
+        value=500, 
+        step=10, 
+        format="%d"
+    )
+    quantity_sold = st.number_input(
+        'Kuantitas Terjual (liter/kg)', 
+        min_value=0, 
+        value=450, 
+        step=10, 
+        format="%d"
+    )
+    price_per_unit = st.number_input(
+        'Harga Jual per Unit (IDR)', 
+        min_value=0, 
+        value=25000, 
+        step=500, 
+        format="%d"
+    )
 
 
 
