@@ -250,5 +250,4 @@ st.subheader('Approximation Total Revenue (IDR)')
 pipeline.fit(X_train, y_train)
 prediction = pipeline.predict(input_df)
 
-st.success(f"\nRevenue Prediction: Rp {prediction[0]:,.2f}")
-# print(f"\nRevenue Prediction: Rp {prediction[0]:,.2f}")
+st.success(f"{prediction[0]:,.2f}")
