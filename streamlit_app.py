@@ -82,27 +82,30 @@ with st.expander('Data Visualization'):
 with st.sidebar:
     st.header('Input Features')
 
-    # --- Input Numerik ---
-    number_of_cows = st.slider('Jumlah Sapi (ekor)', min_value=1, max_value=150, value=50)
-    shelf_life = st.slider('Masa Simpan Produk (hari)', min_value=1, max_value=60, value=15)
-    
-    # PERBAIKAN: Menggunakan bilangan bulat dan format="%d"
+    number_of_cows = st.slider('Number of Cows', min_value=1, max_value=150, value=50)
+    shelf_life = st.slider('Shelf Life (days)', min_value=1, max_value=60, value=15)
+
+    farm_size = st.selectbox('Farm Size', option=['Large', 'Medium', 'Small'])
+    product_name = st.selectbox('Product Name', option=['Milk', 'Cheese', 'Yoghurt'])
+    storage_condition = st.selectbox('Storage Condition', option=['Refrigerated', 'Frozen', 'Ambient', 'Polythene Packet', 'Tetra Pack'])
+    sales_channel = st.selectbox('Sales Channel', option=['Retail', 'Wholesale', 'Online'])
+
     quantity_total = st.number_input(
-        'Total Kuantitas Produk (liter/kg)', 
+        'Quantity in Stock (liters/kg)', 
         min_value=0, 
         value=500, 
         step=10, 
         format="%d"
     )
     quantity_sold = st.number_input(
-        'Kuantitas Terjual (liter/kg)', 
+        'Quantity Sold (liters/kg)', 
         min_value=0, 
         value=450, 
         step=10, 
         format="%d"
     )
     price_per_unit = st.number_input(
-        'Harga Jual per Unit (IDR)', 
+        'Price per Unit (sold)', 
         min_value=0, 
         value=25000, 
         step=500, 
