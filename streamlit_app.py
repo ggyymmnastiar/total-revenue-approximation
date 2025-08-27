@@ -200,36 +200,36 @@ with st.expander('Data Preprocessing'):
             st.success('Model training completed!')
 
             st.subheader("Model Evaluation")
-            # 1. Hitung Metrik
+            # 1. Matrics Evaluation
             r2 = r2_score(y_test, y_pred)
             mae = mean_absolute_error(y_test, y_pred)
             rmse = np.sqrt(mean_squared_error(y_test, y_pred))
             mape = mean_absolute_percentage_error(y_test, y_pred) * 100
 
-            # 2. Tampilkan Metrik menggunakan st.metric dalam kolom
-            # --- Baris Pertama ---
+            # 2. Show Matrics
+            # --- First Row  ---
             col1, col2 = st.columns(2)
             with col1:
                 st.metric(label="R-squared (R²)", 
                         value=f"{r2:.3f}", 
-                        help="Semakin mendekati 1, semakin baik modelnya.")
+                        help="Represents the proportion of the variance for the target variable that's explained by the model. Closer to 1 is better.")
             with col2:
                 st.metric(label="Mean Absolute Percentage Error (MAPE)", 
                         value=f"{mape:.2f} %",
-                        help="Rata-rata persentase kesalahan. Semakin kecil, semakin baik.")
+                        help="The average percentage difference between predicted and actual values.")
 
-            # --- Baris Kedua ---
+            # --- Second Row  ---
             col3, col4 = st.columns(2)
             with col3:
                 st.metric(label="Mean Absolute Error (MAE)", 
                         value=f"Rp {mae:,.0f}",
-                        help="Rata-rata selisih absolut antara prediksi dan nilai asli dalam Rupiah.")
+                        help="The average absolute difference between the predicted and actual revenue in Rupiah.")
             with col4:
                 st.metric(label="Root Mean Squared Error (RMSE)", 
                         value=f"Rp {rmse:,.0f}",
-                        help="Akar kuadrat dari rata-rata kesalahan kuadrat. Memberi bobot lebih pada kesalahan besar.")
+                        help="The square root of the average of squared differences between prediction and actual observation. It penalizes larger errors more heavily.")
             
-            # --- Tampilkan Visualisasi ---
+            # --- Result Visualizations ---
             st.subheader("Result Visualizations")
 
             # Grafik 1: Actual vs. Predicted
@@ -240,8 +240,11 @@ with st.expander('Data Preprocessing'):
             ax.set_ylabel("Predicted Revenue (IDR)")
             ax.set_title("Actual vs Predicted Revenue")
             st.pyplot(fig)
-            st.write("Grafik di atas membandingkan nilai pendapatan aktual dengan hasil prediksi. Semakin dekat titik-titik ke garis merah putus-putus, semakin akurat prediksinya.")
-
+            st.write("""
+            This scatter plot visualizes the model's performance by plotting the **Actual Revenue** (x-axis) against the **Predicted Revenue** (y-axis). 
+            The red dashed line represents a perfect prediction. The closer the data points cluster around this line, the more accurate the model's predictions are.
+            """)
+            
     with tab3:
         st.subheader("Hyperparameter Tuning")
 
