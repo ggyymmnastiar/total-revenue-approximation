@@ -57,8 +57,13 @@ with st.expander('Data Preparation & EDA'):
     y = df['Approx. Total Revenue (IDR)']
     """, language='python')
 
+    # Final Dataset
+    st.write('**● Final Dataset**')
+    df_final = pd.concat(X, y, axis=1)
+    df_final
+
     # Define numerical & categorical column
-    st.write('Define Numerical & Categorical Column')
+    st.write('**● Define Numerical & Categorical Column**')
     numerical_cols = ['Number of Cows', 'Quantity (liters/kg)', 'Shelf Life (days)',
                   'Quantity Sold (liters/kg)', 'Price per Unit (sold) (IDR)']
     categorical_cols = ['Farm Size', 'Product Name', 'Storage Condition', 'Sales Channel']
