@@ -105,7 +105,7 @@ with st.sidebar:
         format="%d"
     )
     price_per_unit = st.number_input(
-        'Price per Unit (sold)', 
+        'Price per Unit (sold) (IDR)', 
         min_value=0, 
         value=25000, 
         step=500, 
@@ -244,3 +244,7 @@ with st.expander('Data Preprocessing'):
 
     with tab3:
         st.subheader("Hyperparameter Tuning")
+
+pipeline.fit(X_train, y_train)
+prediction = pipeline.predict(input_df)
+print(f"\nRevenue Prediction: Rp {prediction[0]:,.2f}")
