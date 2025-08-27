@@ -86,5 +86,8 @@ with st.expander('Data Preprocessing'):
     with tab1:
         st.subheader("Preprocessing Pipeline")
         st.write("**Feature Groups**")
-        st.write(f"- Numerical: {numerical_cols}")
-        st.write(f"- Categorical: {categorical_cols}")
+        st.code("""
+        numerical_cols = ['Number of Cows', 'Quantity (liters/kg)', 'Shelf Life (days)',
+                    'Quantity Sold (liters/kg)', 'Price per Unit (sold) (IDR)']
+        categorical_cols = ['Farm Size', 'Product Name', 'Storage Condition', 'Sales Channel']
+        """, language='python')
