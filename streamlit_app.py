@@ -43,7 +43,17 @@ with st.expander('Data Preparation & EDA'):
     st.write("**● Missing Values per Column:**")
     st.write(missing_counts)
 
-    # Stats for numerical column
-    st.write('**● Stats for Numerical Column**')
-    st.table(df.describe())
+    # Define X and y
+    st.write('**● Define X and y**')
+    X = df[['Number of Cows', 'Farm Size', 'Product Name', 'Quantity (liters/kg)', 
+                 'Shelf Life (days)', 'Storage Condition', 'Quantity Sold (liters/kg)', 
+                 'Sales Channel', 'Price per Unit (sold) (IDR)']]
+    y = df['Approx. Total Revenue (IDR)']
+
+    st.code("""
+    X = df[['Number of Cows', 'Farm Size', 'Product Name', 'Quantity (liters/kg)', 
+                 'Shelf Life (days)', 'Storage Condition', 'Quantity Sold (liters/kg)', 
+                 'Sales Channel', 'Price per Unit (sold) (IDR)']]
+    y = df['Approx. Total Revenue (IDR)']
+    """, language='python')
 
