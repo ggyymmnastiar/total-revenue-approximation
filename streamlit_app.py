@@ -125,7 +125,7 @@ with st.sidebar:
         'Sales Channel': sales_channel 
     }
 
-    input_df = pd.DataFrame(data)
+    input_df = pd.DataFrame(data=data, index=[0])
     combine_input_with_df = pd.concat([input_df, X], axis=0)
 
 # Input Features
