@@ -16,6 +16,6 @@ st.title('💲 Approx. Total Revenue App')
 with st.expander('Data Overview'):
     df = pd.read_csv('https://raw.githubusercontent.com/ggyymmnastiar/g-revenue/refs/heads/master/dairy_dataset.csv')
     st.write('Raw Data')
-    df.head()
+    df
 
 
