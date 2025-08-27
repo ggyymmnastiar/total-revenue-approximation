@@ -100,14 +100,14 @@ with st.sidebar:
     quantity_sold = st.number_input(
         'Quantity Sold (liters/kg)', 
         min_value=0, 
-        value=450, 
+        value=300, 
         step=10, 
         format="%d"
     )
     price_per_unit = st.number_input(
         'Price per Unit (sold) (IDR)', 
         min_value=0, 
-        value=25000, 
+        value=10000, 
         step=500, 
         format="%d"
     )
