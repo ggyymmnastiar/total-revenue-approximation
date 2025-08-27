@@ -59,7 +59,7 @@ with st.expander('Data Preparation & EDA'):
 
     # Final Dataset
     st.write('**● Final Dataset**')
-    df_final = pd.concat(X, y, axis=1)
+    df_final = pd.concat([X, y], axis=1)
     df_final
 
     # Define numerical & categorical column
