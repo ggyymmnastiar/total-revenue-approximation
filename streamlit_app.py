@@ -12,7 +12,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score, mean_absolute_percentage_error, confusion_matrix, classification_report, ConfusionMatrixDisplay
 
 st.title('💲 Approx. Total Revenue App')
-st.info('This is app builds a machine learning model to predict approximation total revenue from dairy product using Random Forest Classification.')
+st.info('This is app builds a machine learning model to predict approximation total revenue from dairy product using Random Forest Regression.')
 
 with st.expander('Data Overview'):
     df = pd.read_csv('https://raw.githubusercontent.com/ggyymmnastiar/g-revenue/refs/heads/master/dairy_dataset.csv')
@@ -73,3 +73,18 @@ with st.expander('Data Preparation & EDA'):
                   'Quantity Sold (liters/kg)', 'Price per Unit (sold) (IDR)']
     categorical_cols = ['Farm Size', 'Product Name', 'Storage Condition', 'Sales Channel']
     """, language='python')
+
+with st.expander('Data Visualization'):
+    st.write('**SOON**')
+
+with st.expander('Input Features'):
+    st.write('**SOON**')
+
+with st.expander('Data Preprocessing'):
+    tab1, tab2, tab3 = st.tabs(["Pipeline Setup", "Train | Test", "Hyperparameter Tuning"])
+    
+    with tab1:
+        st.subheader("Preprocessing Pipeline")
+        st.write("**Feature Groups**")
+        st.write(f"- Numerical: {numerical_cols}")
+        st.write(f"- Categorical: {categorical_cols}")
