@@ -38,4 +38,12 @@ with st.expander('Data Preparation & EDA'):
     df['Approx. Total Revenue (IDR)'] = df['Approx. Total Revenue(INR)'] * 185
     """, language='python')
 
+    # Check missing value
+    missing_counts = df.isnull().sum()
+    st.write("**● Missing Values per Column:**")
+    st.write(missing_counts)
+
+    # Stats for numerical column
+    st.write('**● Stats for Numerical Column**')
+    st.table(df.describe())
 
