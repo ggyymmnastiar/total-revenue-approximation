@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
@@ -85,9 +85,31 @@ with st.expander('Data Preprocessing'):
     
     with tab1:
         st.subheader("Preprocessing Pipeline")
+
+        # Feature Groups
         st.write("**Feature Groups**")
         st.code("""
         numerical_cols = ['Number of Cows', 'Quantity (liters/kg)', 'Shelf Life (days)',
                     'Quantity Sold (liters/kg)', 'Price per Unit (sold) (IDR)']
         categorical_cols = ['Farm Size', 'Product Name', 'Storage Condition', 'Sales Channel']
+        """, language='python')
+
+        # Preprocessor & Pipeline
+        preprocessor = ColumnTransformer(
+                transformers=[
+                    ('num', StandardScaler(), numerical_cols),
+                    ('cat', OneHotEncoder(handle_unknown='ignore'), categorical_cols)
+                ])
+
+        pipeline = Pipeline(steps=[("preprocessor", preprocessor),
+                           ("model", RandomForestRegressor())])
+        st.code("""
+        preprocessor = ColumnTransformer(
+                transformers=[
+                    ('num', StandardScaler(), numerical_cols),
+                    ('cat', OneHotEncoder(handle_unknown='ignore'), categorical_cols)
+                ])
+
+        pipeline = Pipeline(steps=[("preprocessor", preprocessor),
+                           ("model", RandomForestRegressor())])
         """, language='python')
