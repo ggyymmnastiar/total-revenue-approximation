@@ -104,6 +104,7 @@ with st.expander('Data Preprocessing'):
 
         pipeline = Pipeline(steps=[("preprocessor", preprocessor),
                            ("model", RandomForestRegressor())])
+        
         st.code("""
         preprocessor = ColumnTransformer(
                 transformers=[
@@ -114,3 +115,26 @@ with st.expander('Data Preprocessing'):
         pipeline = Pipeline(steps=[("preprocessor", preprocessor),
                            ("model", RandomForestRegressor())])
         """, language='python')
+
+    with tab2:
+        X_train, X_test, y_train, y_test = train_test_split(X, y, 
+                                           test_size=0.2, random_state=101)
+        st.subheader("Train | Test Split")
+        st.write(f"**Train Size:** {len(X_train)} samples")
+        st.write(f"**Test Size:** {len(X_test)} samples")
+        st.write(f"**Random State:** 101")
+        st.write(f"**Test Split:** 20%")
+
+        st.code("""
+        X_train, X_test, y_train, y_test = train_test_split(X, y, 
+                                           test_size=0.2, random_state=101)
+        """, language='python')
+
+        st.subheader("Train Data")
+        if st.button("Train the Data (.fit)"):
+            
+            pipeline.fit(X_train, y_train)
+            
+            y_pred = pipeline.predict(X_test)
+
+            st.write(y_pred)
