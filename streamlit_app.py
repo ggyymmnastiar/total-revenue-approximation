@@ -130,11 +130,48 @@ with st.expander('Data Preprocessing'):
                                            test_size=0.2, random_state=101)
         """, language='python')
 
+        # Train Data
         st.subheader("Train Data")
         if st.button("Train the Data (.fit)"):
-            
-            pipeline.fit(X_train, y_train)
-            
-            y_pred = pipeline.predict(X_test)
+            with st.spinner('Model is being trained, please wait...'):
+                # Melatih model dengan data training
+                pipeline.fit(X_train, y_train)
+                
+                # Melakukan prediksi pada data testing
+                y_pred = pipeline.predict(X_test)
 
-            st.write(y_pred)
+            st.success('Model training completed!')
+
+            # --- Tampilkan Hasil Evaluasi ---
+            st.subheader("Model Evaluation")
+
+            # 1. Hitung Metrik
+            r2 = r2_score(y_test, y_pred)
+            mae = mean_absolute_error(y_test, y_pred)
+            rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+            mape = mean_absolute_percentage_error(y_test, y_pred) * 100
+
+            # 2. Tampilkan Metrik menggunakan st.metric dalam kolom
+            col1, col2, col3, col4 = st.columns(4)
+            with col1:
+                st.metric(label="R-squared (R²)", value=f"{r2:.2f}")
+            with col2:
+                st.metric(label="Mean Absolute Error (MAE)", value=f"Rp {mae:,.0f}")
+            with col3:
+                st.metric(label="Root Mean Squared Error (RMSE)", value=f"Rp {rmse:,.0f}")
+            with col4:
+                st.metric(label="Mean Absolute Percentage Error (MAPE)", value=f"Rp {mape}")
+            
+            # --- Tampilkan Visualisasi ---
+            st.subheader("Result Visualizations")
+
+            # Grafik 1: Actual vs. Predicted
+            fig, ax = plt.subplots(figsize=(10, 6))
+            ax.scatter(y_test, y_pred, alpha=0.7)
+            ax.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], '--', color='red', lw=2)
+            ax.set_xlabel("Actual Revenue (IDR)")
+            ax.set_ylabel("Predicted Revenue (IDR)")
+            ax.set_title("Actual vs. Predicted Revenue")
+            st.pyplot(fig)
+            st.write("Grafik di atas membandingkan nilai pendapatan aktual dengan hasil prediksi. Semakin dekat titik-titik ke garis merah putus-putus, semakin akurat prediksinya.")
+
