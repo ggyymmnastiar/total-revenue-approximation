@@ -132,6 +132,11 @@ with st.expander('Data Preprocessing'):
 
         # Train Data
         st.subheader("Train Data")
+
+        st.code("""
+        pipeline.fit(X_train, y_train)
+        """, language='python')
+        
         if st.button("Train the Data (.fit)"):
             with st.spinner('Model is being trained, please wait...'):
                 # Melatih model dengan data training
@@ -183,7 +188,7 @@ with st.expander('Data Preprocessing'):
             ax.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], '--', color='red', lw=2)
             ax.set_xlabel("Actual Revenue (IDR)")
             ax.set_ylabel("Predicted Revenue (IDR)")
-            ax.set_title("Actual vs. Predicted Revenue")
+            ax.set_title("Actual vs Predicted Revenue")
             st.pyplot(fig)
             st.write("Grafik di atas membandingkan nilai pendapatan aktual dengan hasil prediksi. Semakin dekat titik-titik ke garis merah putus-putus, semakin akurat prediksinya.")
 
