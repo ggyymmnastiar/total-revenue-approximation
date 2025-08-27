@@ -95,6 +95,7 @@ with st.expander('Data Preprocessing'):
         """, language='python')
 
         # Preprocessor & Pipeline
+        st.write("**Define Preprocessor and Pipeline**")
         preprocessor = ColumnTransformer(
                 transformers=[
                     ('num', StandardScaler(), numerical_cols),
