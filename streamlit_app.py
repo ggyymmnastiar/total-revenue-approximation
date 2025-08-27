@@ -136,7 +136,7 @@ with st.expander('Data Preprocessing'):
         st.code("""
         pipeline.fit(X_train, y_train)
         """, language='python')
-        
+
         if st.button("Train the Data (.fit)"):
             with st.spinner('Model is being trained, please wait...'):
                 # Melatih model dengan data training
@@ -192,3 +192,5 @@ with st.expander('Data Preprocessing'):
             st.pyplot(fig)
             st.write("Grafik di atas membandingkan nilai pendapatan aktual dengan hasil prediksi. Semakin dekat titik-titik ke garis merah putus-putus, semakin akurat prediksinya.")
 
+    with tab3:
+        st.subheader("Hyperparameter Tuning")
