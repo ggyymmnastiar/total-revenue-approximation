@@ -139,17 +139,11 @@ with st.expander('Data Preprocessing'):
 
         if st.button("Train the Data (.fit)"):
             with st.spinner('Model is being trained, please wait...'):
-                # Melatih model dengan data training
                 pipeline.fit(X_train, y_train)
-                
-                # Melakukan prediksi pada data testing
                 y_pred = pipeline.predict(X_test)
-
             st.success('Model training completed!')
 
-            # --- Tampilkan Hasil Evaluasi ---
             st.subheader("Model Evaluation")
-
             # 1. Hitung Metrik
             r2 = r2_score(y_test, y_pred)
             mae = mean_absolute_error(y_test, y_pred)
