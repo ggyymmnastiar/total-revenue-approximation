@@ -16,7 +16,12 @@ st.info('This is app builds a machine learning model to predict approximation to
 
 with st.expander('Data Overview'):
     df = pd.read_csv('https://raw.githubusercontent.com/ggyymmnastiar/g-revenue/refs/heads/master/dairy_dataset.csv')
-    st.write('Raw Data')
+    
+    st.write('**● Raw Data:**')
     df
+
+    st.write('**● X raw (Input):**')
+    x_raw = df.drop('Approx. Total Revenue(INR)', axis=1)
+    x_raw
 
 
