@@ -2,6 +2,7 @@
 
 A Machine Learning web application that predicts the **approximate total revenue** (in IDR) from dairy products using a **Random Forest Regressor**, deployed through an interactive Streamlit dashboard.
 
+🔗 **Live Dashboard:** [g-revenue.streamlit.app](https://g-revenue.streamlit.app/)
 ---
 
 ## 📑 Table of Contents
